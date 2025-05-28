@@ -59,14 +59,6 @@
             return false;
         }
 
-        private static void WriteTenTimes()
-        {
-            string arbitraryText = Utilities.GetValidatedString("Ange en godtycklig text:");
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine(arbitraryText);
-            }
-        }
         private static void GetCostByAge()
         {
             int age = Utilities.GetValidatedInteger("Ange en ålder i siffror:");
@@ -103,6 +95,14 @@
 
             Console.WriteLine($"Det är {numberOfMovieVisitors} som ska gå på bio.");
             Console.WriteLine($"Det kommer att kosta: {finalCost}kr");
+        }
+        private static void WriteTenTimes()
+        {
+            string arbitraryText = Utilities.GetValidatedString("Ange en godtycklig text:");
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write(arbitraryText);
+            }
         }
 
         private static void GetThirdWordInASentence()
