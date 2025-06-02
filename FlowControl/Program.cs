@@ -50,7 +50,7 @@
             Console.WriteLine("1. Vilket pris behöver personen betala");
             Console.WriteLine("2. Räkna ut priset för ett helt sällskap");
             Console.WriteLine("3. Upprepa det som skrivs in tio gånger");
-            Console.WriteLine("4. Skriva ut det tredje ordet i en treordsmening");
+            Console.WriteLine("4. Skriva ut det tredje ordet i en mening med minst tre ord");
         }
 
         private static bool TurnOffProgram()
@@ -79,18 +79,8 @@
             for (int i = 0; i < numberOfMovieVisitors; i++)
             {
                 int visitorAge = Utilities.GetValidatedInteger($"Hur gammal är person nr {i + 1}?");
-                if (visitorAge < 20)
-                {
-                    finalCost += Pricing.YouthPrice;
-                }
-                else if (visitorAge > 64)
-                {
-                    finalCost += Pricing.PensionerPrice;
-                }
-                else
-                {
-                    finalCost += Pricing.StandardPrice;
-                }
+                finalCost += Pricing.GetPriceByAge(visitorAge);
+
             }
 
             Console.WriteLine($"Det är {numberOfMovieVisitors} som ska gå på bio.");
@@ -108,7 +98,8 @@
         private static void GetThirdWordInASentence()
         {
             string threeWordSentence = Utilities.GetValidatedString("Ange en mening med minst tre ord:");
-            string[] threeWordSentenceSplit = threeWordSentence.Split();
+            string[] threeWordSentenceSplit = threeWordSentence.Split([' '], StringSplitOptions.RemoveEmptyEntries);
+
 
             if (threeWordSentenceSplit.Length >= 3)
             {
