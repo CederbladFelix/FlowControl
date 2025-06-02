@@ -97,13 +97,13 @@
 
         private static void GetThirdWordInASentence()
         {
-            string threeWordSentence = Utilities.GetValidatedString("Ange en mening med minst tre ord:");
-            string[] threeWordSentenceSplit = threeWordSentence.Split([' '], StringSplitOptions.RemoveEmptyEntries);
+            string sentence = Utilities.GetValidatedString("Ange en mening med minst tre ord:");
+            string[] sentences = sentence.Split([' '], StringSplitOptions.RemoveEmptyEntries);
 
 
-            if (threeWordSentenceSplit.Length >= 3)
+            if (sentences.Length >= 3)
             {
-                Console.WriteLine("Det tredje ordet är: " + threeWordSentenceSplit[2]);
+                Console.WriteLine("Det tredje ordet är: " + sentences[2]);
             }
             else
             {
